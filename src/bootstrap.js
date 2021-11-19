@@ -16,6 +16,7 @@ import Layout from './components/layout';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import SignUp from './components/auth/signup';
+import SignInForm from './components/auth/signinForm';
 
 function main() {
   ReactDOM.render(
