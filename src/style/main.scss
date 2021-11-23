@@ -1,4 +1,3 @@
-
 html {
     font-size: 62.5%;
 }
@@ -9,10 +8,18 @@ html {
     padding: 0;
     box-sizing: inherit;
 }
+
+body {
+    font-family: "Open Sans";
+    color: #808080;
+}
+
+
 @import 'layout';
 @import 'headernavbar';
 @import 'auth/signin';
-@import 'auth/signup'; 
 @import 'auth/signup';
 
+@import 'page-title'; 
 @import 'page-title';
+@import 'form-fields'
