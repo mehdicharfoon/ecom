@@ -6,13 +6,13 @@ class SignUpForm extends Component {
             {
                 _id: 0,
                 title: 'Not registered? Create account here',
-                onClick: () => history.push('/signup')
+                onClick: () => history.push('/signup'),
                 title: 'At least 6 characters'
             },
             {
                 _id: 1,
                 title: 'Forgot account email?',
-                onClick: () => console.log('forgot email')
+                onClick: () => console.log('forgot email'),
                 title: 'At least one number'
             },
             {

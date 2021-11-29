@@ -29,7 +29,7 @@ class Details extends Component {
                             return <a key={link._id} onClick={link.onClick} className='details__link'>{link.title}</a>
                         })
                         this.renderChildren()
-                    }
+    }               
                 </div>
             </div>
         )
