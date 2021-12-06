@@ -1,14 +1,22 @@
 import { 
     SET_USER_PURCHASES
+    SET_USER_PURCHASES,
+    SET_PURCHASE_DETAIL
 } from './types';
+
+export function setPurchaseDetail(_id) {
+    return ({
+        type: SET_PURCHASE_DETAIL,
+        payload: _id
+    })
+}
+
 export function fetchUserPurchases() {
     return ({
         type: SET_USER_PURCHASES,
         payload: [
             {
                 _id: 0,
-                title: 'purchase 1',
-                amount: 8.02
                 total: 19.40,
                 orderNumber: 'A0048248343',
                 orderDate: new Date(),
@@ -20,9 +28,6 @@ export function fetchUserPurchases() {
             },
             {
                 _id: 1,
-                title: 'purchase 2',
-                amount: 19.40
-            }
                 total: 1.30,
                 orderNumber: '24343sdfkjh72',
                 orderDate: new Date(),
@@ -98,7 +103,7 @@ export function fetchUserPurchases() {
                     shippingAddress: '348 Yo State Street'
                 }
             },
-
+          
         ]
     })
-} 
+}
