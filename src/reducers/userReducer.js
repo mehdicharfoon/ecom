@@ -2,10 +2,8 @@ import {
     SET_USER_PURCHASES,
     SET_PURCHASE_DETAIL
 } from '../actions/types';
-
 const INITIAL_STATE = {
     purchases: [],
-    purchaseDetail: {}
     purchaseDetail: {
         _id: -1,
         total: 0,
@@ -18,7 +16,6 @@ const INITIAL_STATE = {
         }
     }
 }
-
 export default function(state = INITIAL_STATE, action) {
     switch (action.type) {
         case SET_USER_PURCHASES:
@@ -30,6 +27,7 @@ export default function(state = INITIAL_STATE, action) {
             let purchaseDetail;
             state.purchases.map(purchase => {
                 if(purchase._id = action.payload) {
+                if(purchase._id == action.payload) {
                     purchaseDetail = purchase;
                 }
             })
