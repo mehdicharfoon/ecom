@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 function PurchaseDetailLabel({className, title, value}) {
     return (
         <div className={`${className} purchase-detail-label`}>
@@ -9,21 +8,16 @@ function PurchaseDetailLabel({className, title, value}) {
         </div>
     )
 }
-
-
 // total: 19.40,
 // creditCard: '-0000',
-
-
 class PurchaseDetail extends Component {
     render() {
-        const { className } = this.props;
         const { className, orderNumber, orderDate, user, total, creditCard } = this.props;
         const { name, shippingAddress } = user;
 
+        const nameAddress = `${name}       ${shippingAddress}`
         return (
             <div className={`${className} purchase-detail`}>
-                purchase detail goes here
                 <PurchaseDetailLabel
                  className='purchase-detail__order-number'
                  title='Order Number'
@@ -34,8 +28,10 @@ class PurchaseDetail extends Component {
                  value={orderDate}/>
                 <PurchaseDetailLabel
                  className='purchase-detail__shipping'
+                 className='purchase-detail__shipping-address'
                  title='Shipping Address'
                  value={`${name}\n${shippingAddress}`}/>
+                 value={nameAddress}/>
                 <PurchaseDetailLabel
                  className='purchase-detail__total'
                  title='Total'
@@ -44,18 +40,17 @@ class PurchaseDetail extends Component {
                  className='purchase-detail__credit-card'
                  title='Credit Card'
                  value={creditCard}/>
+                 <a className='purchase-detail__track-shipment'>Track Shipment</a>
+                 <a className='purchase-detail__print-receipt'>Print Receipt</a>
             </div>
         )
     }
 }
-
 function mapStateToProps(state) {
     const { purchaseDetail } = state.user;
     return {
         ...purchaseDetail
     }
 }
-
 PurchaseDetail = connect(mapStateToProps)(PurchaseDetail);
-
-export default PurchaseDetail
+export default PurchaseDetail;
