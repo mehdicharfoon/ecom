@@ -1,4 +1,3 @@
-
 html {
     font-size: 62.5%;
 }
@@ -27,6 +26,10 @@ body {
 @import 'account/account-information';
 
 // SHOP
-@import 'shop/shop'; 
 @import 'shop/shop';
+@import 'shop/shop-search-bar'; 
 @import 'shop/shop-search-bar';
+
+// QUANTITY
+@import 'quantity';
+@import 'green-price-tag';

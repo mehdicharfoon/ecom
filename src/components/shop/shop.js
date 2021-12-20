@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import ShopSearchBar from './shopSearchBar';
+import ShopProduct from './shopProduct';
 
 class Shop extends Component {
 
@@ -25,16 +25,12 @@ class Shop extends Component {
         }
         return true
     }
-
     onSubmit = (fields) => {
-        console.log(fields);
+        this.props.filterProductsWithQuery(fields)
     }
-
     render() {
-
         return (
             <div className='shop'>
-                {/* shop search bar */}
                 <ShopSearchBar onSubmit={this.onSubmit} className='shop__search-bar'/>
                 <div className='shop__products'>
                     {
@@ -48,6 +44,7 @@ class Shop extends Component {
                                         {product.description}
                                     </div>
                                 </div>
+                                <ShopProduct {...product} key={product._id} />
                             )
                         })
                     }
