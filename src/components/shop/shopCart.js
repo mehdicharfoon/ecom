@@ -6,7 +6,6 @@ function CartButton({className, icon}) {
         </div>
     )
 }
-
 function CartContent({className, products}) {
     let count = products.length;
     let productsJSX = products.map(product => <h1 key={product}>{product}</h1>);
@@ -16,15 +15,12 @@ function CartContent({className, products}) {
                 Cart ({count})
             </div>
             <div className='cart-content__products'>
-
                 {productsJSX}
             </div>
-            <div className='cart-content__footer'>
             <CartFooter className='cart-content__footer' products={products}/>
         </div>
     )
 }
-
 function CartFooter({className, products}) {
     const price = 7.96;
     return (
@@ -40,7 +36,7 @@ function CartFooter({className, products}) {
             </div>
         </div>
     )
-    }
+}
 class ShopCart extends Component {
     render() {
         const { className } = this.props;
@@ -48,6 +44,7 @@ class ShopCart extends Component {
             <div className={`${className} shop-cart`}>
                 <CartButton className='shop-cart__toggle' icon='fas fa-times'/>
                 <CartContent className='shop-cart__content' products={[243, 3434, 4554]}/>
+                <CartContent className='shop-cart__content' products={[243, 3434, 4554, 243, 3434, 4554, 3434, 4554, 243, 3434, 4554]}/>
             </div>
         )
     }
