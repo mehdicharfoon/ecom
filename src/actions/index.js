@@ -3,27 +3,31 @@ import {
     setNavbarLinks,
     changeNavbarActive
 } from './headernavbar';
+
 import {
     fetchUserPurchases,
     setPurchaseDetail
+    setPurchaseDetail,
+    fetchCartProducts
 } from './user';
 
 import {
     fetchShopCategories,
-
     fetchShopProducts,
-    filterProductsWithCategoryId
+    filterProductsWithCategoryId,
+    filterProductsWithQuery
 } from './shop';
-
 export {
     setHeaderLinks,
     setNavbarLinks,
     changeNavbarActive,
+
     fetchUserPurchases,
     setPurchaseDetail,
+    fetchCartProducts,
 
     fetchShopCategories,
-    fetchShopProducts
     fetchShopProducts,
-    filterProductsWithCategoryId
+    filterProductsWithCategoryId,
+    filterProductsWithQuery
 };
