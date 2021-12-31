@@ -1,27 +1,39 @@
-.review-form {
-    &__products {
-        grid-column: 1/-1;
-        grid-row: products-s/products-e;
-        overflow-y: scroll;
+import React, { Component } from 'react';
+import { reduxForm, Field } from 'redux-form';
+import history from '../../history';
+import { FormButton } from '../formFields';
+import ReviewProducts from './reviewProducts';
+class ReviewForm extends Component {
+    render() {
+        const { className, handleSubmit } = this.props;
 
-        display: grid;
-        grid-template-rows: repeat(auto-fit, 80px);
-        grid-row-gap: 12px;
-
-        align-self: center;
-    }
-    &__line {
-        grid-column: 1/-1;
-        grid-row: line-s/line-e;
-        border-top: 1px solid #ccc;
-        margin-bottom: 24px;
-    }
-    &__back {
-        grid-row: buttons-s/buttons-e;
-        grid-column: back-s/back-e;
-    }
-    &__proceed {
-        grid-row: buttons-s/buttons-e;
-        grid-column: proceed-s/proceed-e;
+        return (
+            <form onSubmit={handleSubmit} className={`${className} review-form`}>
+                <div className='review-form__legend'>
+                    <div className='review-form__legend__name'>Name</div>
+                    <div className='review-form__legend__quantity'>Quantity</div>
+                    <div className='review-form__legend__price'>Price</div>
+                </div>
+                <ReviewProducts className='review-form__products'/>
+                <div className='review-form__line'></div>
+                <Field className='review-form__proceed'
+                onClick={() => history.push('/signin')}
+                type='submit'
+                title='Proceed to Checkout'
+                name='proceed'
+                component={FormButton}/>
+                <Field className='review-form__back'
+                onClick={() => history.push('/shop')}
+                type='button'
+                title='Back'
+                name='back'
+                short={true}
+                component={FormButton}/>
+            </form>
+        )
     }
 }
+ReviewForm = reduxForm({
+    form: 'ReviewForm'
+})(ReviewForm);
+export default ReviewForm;
